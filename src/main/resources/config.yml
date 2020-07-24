@@ -1,0 +1,7 @@
+messages:
+  #VARIABLES
+  #{PLAYER} - victim name
+  #{HEALTH} - victim health
+  bow: "&8*** &6{PLAYER} &Eposiada: &6{HEALTH} HP"
+  snowball: "&8*** &6{PLAYER} &Eposiada: &6{HEALTH} HP"
+  fishing_rod: "&8*** &6{PLAYER} &Eposiada: &6{HEALTH} HP"

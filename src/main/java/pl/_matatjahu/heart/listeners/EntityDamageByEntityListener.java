@@ -8,6 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import pl._matatjahu.heart.Main;
 import pl._matatjahu.heart.utils.ChatUtil;
 
 public class EntityDamageByEntityListener implements Listener {
@@ -21,12 +22,12 @@ public class EntityDamageByEntityListener implements Listener {
                     arrow = (Arrow) event.getDamager();
                 }
                 if (arrow != null && arrow.getShooter() instanceof Player) {
-                    ChatUtil.sendMessage((Player)arrow.getShooter(), "&8*** &6" + player.getName() + " &Eposiada: &6" + Math.floor(((player.getHealth() - event.getFinalDamage()) / 2)) + "HP");
+                    ChatUtil.sendMessage((Player)arrow.getShooter(), Main.getInstance().getConfiguration().getMessageBow().replace("{PLAYER}", player.getName()).replace("{HEALTH}", Math.floor(((player.getHealth() - event.getFinalDamage())/ 2)) + ""));
                     return;
                 }
                 Snowball snowball = (Snowball) event.getDamager();
                 if (snowball != null && snowball.getShooter() instanceof Player) {
-                    ChatUtil.sendMessage((Player)snowball.getShooter(), "&8*** &6" + player.getName() + " &Eposiada: &6" + Math.floor(((player.getHealth() - event.getFinalDamage()) / 2)) + "HP");
+                    ChatUtil.sendMessage((Player)snowball.getShooter(), Main.getInstance().getConfiguration().getMessageSnowball().replace("{PLAYER}", player.getName()).replace("{HEALTH}", Math.floor((player.getHealth() / 2)) + ""));
                 }
             }
         }
